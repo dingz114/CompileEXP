@@ -209,12 +209,13 @@ public:
             switch (current_char)
             { 
             case '=':
-                front();
                 if (next_char() == '=')
                 {
                     front();
+                    front();
                     return Token(EQUAL,"==",line);
                 }
+                front();
                 return Token(ASSIGN,"=",line);
             case '+':
                 front();
@@ -232,44 +233,49 @@ public:
                 front();
                 return Token(MODULO,"%",line);
             case '<':
-                front();
                 if (next_char() == '=')
                 {
+                    front();
                     front();
                     return Token(LESSEQUAL, "<=", line);
                 }
+                front();
                 return Token(LESS, "<", line);
             case '>':
-                front();
                 if (next_char() == '=')
                 {
+                    front();
                     front();
                     return Token(GREATEREQUAL, ">=", line);
                 }
+                front();
                 return Token(GREATER, ">", line);
             case '!':
-                front();
                 if (next_char() == '=')
                 { 
                     front();
+                    front();
                     return Token(NOTEQUAL, "!=", line);
                 }
+                front();
                 return Token(NOT, "!", line);
             case '&':
-                front();
                 if (next_char() == '&')
                 {
                     front();
+                    front();
                     return Token(AND, "&&", line);
                 }
+                front();
                 return Token(AND, "&", line);
             case '|':
-                front();
                 if (next_char() == '|')
                 {
                     front();
+                    front();
                     return Token(OR, "||", line);
                 }
+                front();
                 return Token(OR, "|", line);
             case '(':
                 front();
@@ -311,6 +317,9 @@ public:
 
 int main()
 {
+    /*string a = "int";
+    TokenType t= find_key(a, keywords);
+    cout << token_name[t] << endl;*/
     stringstream ss;
     ss << cin.rdbuf();
     string input = ss.str();
