@@ -53,14 +53,6 @@ unordered_map<string, TokenType> keywords = {
      {"continue", CONTINUE},
      {"return", RETURN}
 };
-TokenType find_key(string s, unordered_map<string, TokenType> keywords)
-{
-    auto it = keywords.find(s);
-    if (it != keywords.end()) {
-        return it->second;
-    }
-    return IDENT;
-}
 class Token 
 {
 public:
@@ -319,9 +311,6 @@ public:
 
 int main()
 {
-    /*string a = "int";
-    TokenType t= find_key(a, keywords);
-    cout << token_name[t] << endl;*/
     stringstream ss;
     ss << cin.rdbuf();
     string input = ss.str();
