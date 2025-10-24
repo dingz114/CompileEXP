@@ -117,14 +117,16 @@ public:
             char next = next_char();
             if (next == '/')
             {
+                front();
+                front();
                 while (current_char != '\0' && current_char != '\n')
                 {
                     front();
-                    if (current_char == '\n')
-                    {
-                        line++;
-                        front();
-                    }
+                }
+                if (current_char == '\n')
+                {
+                    line++;
+                    front();
                 }
             }
             else if (next == '*')
@@ -176,7 +178,6 @@ public:
         }
         if (keywords.find(res) != keywords.end())
         {
-            /*TokenType type = find_key(res, keywords);*/
             Token keyword=Token(keywords[res],res,line);
             return keyword;
         }
