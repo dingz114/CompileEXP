@@ -1,6 +1,6 @@
 #pragma once
 
-#include "manual_lexer.h"
+#include "lexer.h"
 #include "ast.h"
 #include <memory>
 #include <vector>
@@ -55,3 +55,4 @@ private:
     UnaryExpr::Operator token_to_unary_op(TokenType type);
     FuncDef::ReturnType token_to_return_type(TokenType type);
 };
+
